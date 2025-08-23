@@ -1,0 +1,37 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# PyCharm
+.idea/
+*.iml
+
+# Jupyter / IPython
+.ipynb_checkpoints
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Data files
+*.csv
+*.tsv
+*.xlsx
+
+# Model artifacts
+*.pkl
+*.joblib
+
+# Reports / temp
+*.out
+*.tmp
+
