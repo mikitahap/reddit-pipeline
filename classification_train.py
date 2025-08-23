@@ -21,6 +21,7 @@ vectorizer = TfidfVectorizer(
 X_train_vec = vectorizer.fit_transform(X_train)
 X_test_vec = vectorizer.transform(X_test)
 
+# Учим модель
 model = LogisticRegression(max_iter=200, class_weight="balanced")
 model.fit(X_train_vec, y_train)
 

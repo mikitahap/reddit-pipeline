@@ -32,7 +32,7 @@ class Extractor:
             after = None
             quantity = 200
             while len(self.__transformed_data) < quantity:
-                response = requests.get("https://oauth.reddit.com/r/sports", headers=headers, params={"limit": 100, 'after': after})
+                response = requests.get("https://oauth.reddit.com/r/news/new", headers=headers, params={"limit": quantity if quantity < 100 else 100, 'after': after})
                 self.__transformed_data.extend(response.json()["data"]["children"])
                 after = response.json()["data"]["after"]
                 if not after:
