@@ -1,6 +1,6 @@
 requests
-dotenv
 pandas
 scikit-learn
 sqlalchemy
 psycopg2-binary
+apache-airflow

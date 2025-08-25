@@ -1,16 +1,16 @@
 import os
 import requests
-from dotenv import load_dotenv
 import json
+import logging
 
 class Extractor:
     def __init__(self):
         self.__transformed_data = []
-        load_dotenv()
         self.__CLIENT_ID = os.getenv("CLIENT_ID")
         self.__CLIENT_SECRET = os.getenv("CLIENT_SECRET")
         self.__USER_PASSWORD = os.getenv("USER_PASSWORD")
         self.__USERNAME = os.getenv("USERNAME")
+
     def extract(self):
         try:
             auth = requests.auth.HTTPBasicAuth(self.__CLIENT_ID, self.__CLIENT_SECRET)
@@ -37,14 +37,8 @@ class Extractor:
                 after = response.json()["data"]["after"]
                 if not after:
                     break
-
-            with open("posts.json", "w") as f:
-                f.write(json.dumps(self.__transformed_data, ensure_ascii=True, indent=4, separators=(",", ":")))
             return self.__transformed_data
         except requests.exceptions.HTTPError as e:
             print(e)
         except Exception as e:
             print(e)
-
-extractor = Extractor()
-extractor.extract()
